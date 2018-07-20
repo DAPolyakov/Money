@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Money</string>
 
+    <string name="about_app_title">Трекер финансов</string>
+
     <string name="balance">Трекер</string>
     <string name="about">О приложении</string>
     <string name="settings">Настройки</string>

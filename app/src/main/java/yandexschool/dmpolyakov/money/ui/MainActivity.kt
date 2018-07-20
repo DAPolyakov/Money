@@ -3,9 +3,11 @@ package yandexschool.dmpolyakov.money.ui
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 import yandexschool.dmpolyakov.money.R
+import yandexschool.dmpolyakov.money.ui.about.AboutFragment
+import yandexschool.dmpolyakov.money.ui.settings.SettingsFragment
+import yandexschool.dmpolyakov.money.ui.tracker.TrackerFragment
 
 class MainActivity : AppCompatActivity(), MainView {
 
@@ -22,26 +24,35 @@ class MainActivity : AppCompatActivity(), MainView {
             true
         }
 
+        initStartFragment()
+
         presenter.attachView(this)
         presenter.viewIsReady()
     }
 
-    private fun showFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.frame, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
+    private fun initStartFragment() {
+        bottomNavigation.selectedItemId = R.id.tracker
     }
 
     override fun showAboutFragment() {
-        Log.d("myfragment", "On About!")
+        showFragment(AboutFragment())
     }
 
     override fun showTrackerFragment() {
-        Log.d("myfragment", "On Tracker!")
+        showFragment(TrackerFragment())
     }
 
     override fun showSettingsFragment() {
-        Log.d("myfragment", "On Settings!")
+        showFragment(SettingsFragment())
+    }
+
+    private fun showFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        if (supportFragmentManager.fragments.size == 0) {
+            transaction.add(R.id.frame, fragment)
+        } else {
+            transaction.replace(R.id.frame, fragment)
+        }
+        transaction.commit()
     }
 }
