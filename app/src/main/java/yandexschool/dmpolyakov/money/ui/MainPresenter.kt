@@ -1,7 +1,7 @@
 package yandexschool.dmpolyakov.money.ui
 
 import yandexschool.dmpolyakov.money.R
-import yandexschool.dmpolyakov.money.ui.mvp.BasePresenter
+import yandexschool.dmpolyakov.money.mvp.BasePresenter
 
 
 class MainPresenter() : BasePresenter<MainView>() {

@@ -1,4 +1,4 @@
-package yandexschool.dmpolyakov.money.ui.mvp
+package yandexschool.dmpolyakov.money.mvp
 
 
 abstract class BasePresenter<T : MvpView> : MvpPresenter<T> {

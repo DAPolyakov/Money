@@ -1,6 +1,6 @@
 package yandexschool.dmpolyakov.money.ui.about
 
-import yandexschool.dmpolyakov.money.ui.mvp.MvpView
+import yandexschool.dmpolyakov.money.mvp.MvpView
 
 
 interface AboutView : MvpView {

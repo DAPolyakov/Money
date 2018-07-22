@@ -1,4 +1,4 @@
-package yandexschool.dmpolyakov.money.ui.mvp
+package yandexschool.dmpolyakov.money.mvp
 
 
 interface MvpPresenter<in V : MvpView> {

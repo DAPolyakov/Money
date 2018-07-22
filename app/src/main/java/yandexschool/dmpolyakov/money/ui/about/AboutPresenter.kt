@@ -1,7 +1,7 @@
 package yandexschool.dmpolyakov.money.ui.about
 
 import yandexschool.dmpolyakov.money.BuildConfig
-import yandexschool.dmpolyakov.money.ui.mvp.BasePresenter
+import yandexschool.dmpolyakov.money.mvp.BasePresenter
 
 
 class AboutPresenter : BasePresenter<AboutView>() {
