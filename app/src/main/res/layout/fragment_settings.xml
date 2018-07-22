@@ -22,7 +22,7 @@
         android:layout_marginTop="16dp"
         android:paddingEnd="16dp"
         android:paddingStart="16dp"
-        android:text="В скором времени здесь появится модуль настроек"
+        android:text="@string/future_module_settings"
         android:textAlignment="center"
         android:textColor="@color/sandy_gray_brown"
         android:textSize="20sp"

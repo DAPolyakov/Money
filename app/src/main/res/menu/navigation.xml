@@ -9,7 +9,7 @@
     <item
         android:id="@+id/tracker"
         android:icon="@drawable/ic_tracker"
-        android:title="@string/balance" />
+        android:title="@string/tracker" />
 
     <item
         android:id="@+id/settings"

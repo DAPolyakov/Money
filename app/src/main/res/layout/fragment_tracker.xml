@@ -31,26 +31,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="20.00 ₽"
                 android:textColor="#105612"
                 android:textSize="28sp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="20.00 ₽" />
 
             <TextView
                 android:id="@+id/dollars"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="0.04 $"
                 android:textColor="#e7b968"
                 android:textSize="16sp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="@id/rubbles"
                 app:layout_constraintStart_toStartOf="@id/rubbles"
-                app:layout_constraintTop_toBottomOf="@id/rubbles" />
+                app:layout_constraintTop_toBottomOf="@id/rubbles"
+                tools:text="0.04 $" />
 
         </android.support.constraint.ConstraintLayout>
 
