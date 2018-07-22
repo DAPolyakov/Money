@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#f1f1f1"
     tools:context=".ui.MainActivity">
 
     <FrameLayout
@@ -14,7 +14,14 @@
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            layout="@layout/fragment_tracker"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottomNavigation"
@@ -22,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
-        android:background="#0c1283"
+        android:background="@color/saturated_green"
         app:itemIconTint="@drawable/bottom_navigation_selector"
         app:itemTextColor="@drawable/bottom_navigation_selector"
         app:layout_constraintBottom_toBottomOf="parent"

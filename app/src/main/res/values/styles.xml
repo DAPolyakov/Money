@@ -10,6 +10,9 @@
         <item name="android:windowFullscreen">true</item>
         <item name="windowNoTitle">true</item>
 
+        <item name="cardViewStyle">@style/CardView</item>
+        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView</item>
+
     </style>
 
 </resources>

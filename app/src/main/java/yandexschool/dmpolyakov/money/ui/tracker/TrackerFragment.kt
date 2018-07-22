@@ -16,5 +16,5 @@ class TrackerFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_tracker, container, false)
     }
 
-
+    
 }
