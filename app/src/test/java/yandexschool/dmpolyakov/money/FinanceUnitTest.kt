@@ -30,16 +30,27 @@ class FinanceUnitTest {
     }
 
     @Test
-    fun sum_operations() {
-        val op = listOf<FinanceOperation>(
+    fun sum_operations_only_income() {
+        val op = listOf(
                 FinanceOperation(OperationType.Income, 150.toDouble(), Currency.Rubble),
-                FinanceOperation(OperationType.Paid, 100.toDouble(), Currency.Rubble),
                 FinanceOperation(OperationType.Income, 2.toDouble(), Currency.Dollar),
-                FinanceOperation(OperationType.Income, 100.toDouble(), Currency.Rubble),
+                FinanceOperation(OperationType.Income, 100.toDouble(), Currency.Rubble)
+        )
+
+        val res = 150.toRubbles(Currency.Rubble) + 2.toRubbles(Currency.Dollar) + 100.toRubbles(Currency.Rubble)
+        val s = sumFinanceOperations(op, Currency.Rubble)
+
+        Assert.assertEquals(res, s, 0.001)
+    }
+
+    @Test
+    fun sum_operations_only_paid() {
+        val op = listOf(
+                FinanceOperation(OperationType.Paid, 100.toDouble(), Currency.Rubble),
                 FinanceOperation(OperationType.Paid, 3.toDouble(), Currency.Dollar)
         )
 
-        val res = 150 - 100 + 2.toRubbles(Currency.Dollar) + 100 - 3.toRubbles(Currency.Dollar)
+        val res = (-100).toRubbles(Currency.Rubble) - 3.toRubbles(Currency.Dollar)
         val s = sumFinanceOperations(op, Currency.Rubble)
 
         Assert.assertEquals(res, s, 0.001)
