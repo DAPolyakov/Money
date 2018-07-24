@@ -19,15 +19,17 @@ class MainActivity : AppCompatActivity(), MainView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        presenter.attachView(this)
+
         bottomNavigation.setOnNavigationItemSelectedListener {
             presenter.onItem(it.itemId)
             true
         }
 
-        initStartFragment()
-
-        presenter.attachView(this)
-        presenter.viewIsReady()
+        if (savedInstanceState == null) {
+            initStartFragment()
+            presenter.viewIsReady()
+        }
     }
 
     private fun initStartFragment() {
