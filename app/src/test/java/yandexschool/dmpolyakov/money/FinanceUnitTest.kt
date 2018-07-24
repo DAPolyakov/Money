@@ -10,17 +10,27 @@ import yandexschool.dmpolyakov.money.utils.toRubbles
 class FinanceUnitTest {
 
     @Test
-    fun int_rubbles_to_dollars_is_correct() {
-        Assert.assertEquals(10 / DOLLAR_TO_RUBBLE, 10.toDollars(Currency.Rubble), 0.001)
+    fun int_rubbles_to_dollars() {
+        Assert.assertEquals(10 / DOLLAR_TO_RUBBLE, 10.toDollars(Currency.Rubble), 0.000001)
     }
 
     @Test
-    fun int_dollars_to_rubbles_is_correct() {
-        Assert.assertEquals(10 * DOLLAR_TO_RUBBLE, 10.toRubbles(Currency.Dollar), 0.001)
+    fun int_rubbles_to_rubbles() {
+        Assert.assertEquals(10.0, 10.toRubbles(Currency.Rubble), 0.000001)
     }
 
     @Test
-    fun sum_operations_isCorrect() {
+    fun int_dollars_to_rubbles() {
+        Assert.assertEquals(10 * DOLLAR_TO_RUBBLE, 10.toRubbles(Currency.Dollar), 0.000001)
+    }
+
+    @Test
+    fun int_dollars_to_dollars() {
+        Assert.assertEquals(10.0, 10.toDollars(Currency.Dollar), 0.000001)
+    }
+
+    @Test
+    fun sum_operations() {
         val op = listOf<FinanceOperation>(
                 FinanceOperation(OperationType.Income, 150.toDouble(), Currency.Rubble),
                 FinanceOperation(OperationType.Paid, 100.toDouble(), Currency.Rubble),
