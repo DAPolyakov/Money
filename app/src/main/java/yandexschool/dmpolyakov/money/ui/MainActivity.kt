@@ -19,15 +19,17 @@ class MainActivity : AppCompatActivity(), MainView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        presenter.attachView(this)
+
         bottomNavigation.setOnNavigationItemSelectedListener {
             presenter.onItem(it.itemId)
             true
         }
 
-        initStartFragment()
-
-        presenter.attachView(this)
-        presenter.viewIsReady()
+        if (savedInstanceState == null) {
+            initStartFragment()
+            presenter.viewIsReady()
+        }
     }
 
     private fun initStartFragment() {
@@ -47,12 +49,9 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     private fun showFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        if (supportFragmentManager.fragments.size == 0) {
-            transaction.add(R.id.frame, fragment)
-        } else {
-            transaction.replace(R.id.frame, fragment)
-        }
-        transaction.commit()
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.frame, fragment)
+                .commit()
     }
 }
