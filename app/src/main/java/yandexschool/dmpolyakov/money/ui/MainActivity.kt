@@ -47,12 +47,9 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     private fun showFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        if (supportFragmentManager.fragments.size == 0) {
-            transaction.add(R.id.frame, fragment)
-        } else {
-            transaction.replace(R.id.frame, fragment)
-        }
-        transaction.commit()
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.frame, fragment)
+                .commit()
     }
 }
