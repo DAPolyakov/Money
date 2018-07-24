@@ -5,6 +5,15 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'FinanceTracker'
+            keyPassword '123456'
+            storeFile file('/Users/dima/Documents/YandexSchoolKeyStore')
+            storePassword '123456'
+        }
+    }
+
     compileSdkVersion 28
     defaultConfig {
         applicationId "yandexschool.dmpolyakov.money"
@@ -14,7 +23,7 @@ android {
         versionName "0.0.1"
         buildTypes {
             release {
-                minifyEnabled false
+                minifyEnabled true
                 proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             }
         }
@@ -30,5 +39,18 @@ android {
         testImplementation "junit:junit:$junit"
         androidTestImplementation "com.android.support.test:runner:$test_runner"
         androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_core"
+    }
+
+    buildToolsVersion '28.0.1'
+
+    buildTypes {
+        release {
+            debuggable false
+            jniDebuggable false
+            signingConfig signingConfigs.config
+            renderscriptDebuggable false
+            minifyEnabled true
+            shrinkResources true
+        }
     }
 }
