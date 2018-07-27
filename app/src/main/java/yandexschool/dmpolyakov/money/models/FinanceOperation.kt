@@ -3,15 +3,16 @@ package yandexschool.dmpolyakov.money.models
 import yandexschool.dmpolyakov.money.Currency
 import yandexschool.dmpolyakov.money.DOLLAR_TO_RUBBLE
 import yandexschool.dmpolyakov.money.OperationType
+import java.math.BigDecimal
 
 data class FinanceOperation(
         val type: OperationType,
-        val count: Double,
+        val count: BigDecimal,
         var currency: Currency
 
 ) {
 
-    fun getDifferenceInRubbles(): Double {
+    fun getDifferenceInRubbles(): BigDecimal {
         val rubbles = when (currency) {
             Currency.Dollar -> count * DOLLAR_TO_RUBBLE
             Currency.Rubble -> count
@@ -19,7 +20,8 @@ data class FinanceOperation(
 
         return when (type) {
             OperationType.Income -> rubbles
-            OperationType.Paid -> rubbles * -1
+            OperationType.Paid -> rubbles * BigDecimal(-1)
         }
     }
+
 }

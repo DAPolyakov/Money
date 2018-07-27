@@ -1,29 +1,35 @@
 package yandexschool.dmpolyakov.money.ui.settings
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.arellomobile.mvp.presenter.InjectPresenter
+import com.arellomobile.mvp.presenter.ProvidePresenter
 import yandexschool.dmpolyakov.money.R
+import yandexschool.dmpolyakov.money.navigation.MainRouter
+import yandexschool.dmpolyakov.money.ui.base.mvp.BaseMvpFragment
+import javax.inject.Inject
 
 
-class SettingsFragment : Fragment(), SettingsView {
+class SettingsFragment : BaseMvpFragment<SettingsPresenter>(), SettingsView {
 
-    private val presenter: SettingsPresenter by lazy {
-        SettingsPresenter()
+    companion object {
+        val instance = SettingsFragment()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_settings, container, false)
-    }
+    @Inject
+    lateinit var router: MainRouter
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    @Inject
+    @InjectPresenter
+    lateinit var presenter: SettingsPresenter
 
-        presenter.attachView(this)
-        presenter.viewIsReady()
-    }
+    @ProvidePresenter
+    override fun providePresenter() = presenter
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
+            : View? = inflater.inflate(R.layout.fragment_settings, container, false)
+
+    override fun getLogName() = "SettingsFragment"
 }

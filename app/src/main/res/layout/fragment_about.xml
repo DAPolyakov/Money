@@ -18,12 +18,8 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/TextLabelMedium"
         android:layout_marginTop="42dp"
-        android:gravity="center_horizontal"
-        android:textColor="@color/sandy_gray_brown"
-        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
