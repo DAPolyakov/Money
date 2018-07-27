@@ -3,10 +3,11 @@ package yandexschool.dmpolyakov.money.utils
 import yandexschool.dmpolyakov.money.Currency
 import yandexschool.dmpolyakov.money.DOLLAR_TO_RUBBLE
 import yandexschool.dmpolyakov.money.models.FinanceOperation
+import java.math.BigDecimal
 
 
-fun sumFinanceOperations(operations: List<FinanceOperation>, resultCurrency: Currency = Currency.Rubble): Double {
-    var sumInRubbles = 0.0
+fun sumFinanceOperations(operations: List<FinanceOperation>, resultCurrency: Currency = Currency.Rubble): BigDecimal {
+    var sumInRubbles = BigDecimal(0)
 
     for (operation in operations) {
         sumInRubbles += operation.getDifferenceInRubbles()
@@ -18,19 +19,19 @@ fun sumFinanceOperations(operations: List<FinanceOperation>, resultCurrency: Cur
     }
 }
 
-fun Double.toRubbles(sourceCurrency: Currency): Double {
+fun BigDecimal.toRubbles(sourceCurrency: Currency): BigDecimal {
     return when (sourceCurrency) {
         Currency.Rubble -> this
         Currency.Dollar -> this * DOLLAR_TO_RUBBLE
     }
 }
 
-fun Double.toDollars(sourceCurrency: Currency): Double {
+fun BigDecimal.toDollars(sourceCurrency: Currency): BigDecimal {
     return when (sourceCurrency) {
         Currency.Rubble -> this / DOLLAR_TO_RUBBLE
         Currency.Dollar -> this
     }
 }
 
-fun Int.toDollars(sourceCurrency: Currency): Double = this.toDouble().toDollars(sourceCurrency)
-fun Int.toRubbles(sourceCurrency: Currency): Double = this.toDouble().toRubbles(sourceCurrency)
+fun Int.toDollars(sourceCurrency: Currency) = this.toBigDecimal().toDollars(sourceCurrency)
+fun Int.toRubbles(sourceCurrency: Currency) = this.toBigDecimal().toRubbles(sourceCurrency)

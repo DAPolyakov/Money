@@ -13,6 +13,7 @@ import yandexschool.dmpolyakov.money.navigation.MainRouter
 import yandexschool.dmpolyakov.money.ui.base.mvp.BaseMvpFragment
 import yandexschool.dmpolyakov.money.utils.toDollars
 import yandexschool.dmpolyakov.money.utils.toRubbles
+import java.math.BigDecimal
 import java.text.DecimalFormat
 import javax.inject.Inject
 
@@ -38,7 +39,7 @@ class TrackerFragment : BaseMvpFragment<TrackerPresenter>(), TrackerView {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
             : View? = inflater.inflate(R.layout.fragment_tracker, container, false)
 
-    override fun showBalance(count: Double, currency: Currency) {
+    override fun showBalance(count: BigDecimal, currency: Currency) {
         val df = DecimalFormat("0.00")
 
         val rubbles = "${df.format(count.toRubbles(currency))} ${Currency.Rubble.sign}"
