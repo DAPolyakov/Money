@@ -1,8 +1,10 @@
 package yandexschool.dmpolyakov.money
 
+import java.math.BigDecimal
 
-const val BALANCE_IN_RUBBLES = 15000.0
-const val DOLLAR_TO_RUBBLE = 63.47
+
+val BALANCE_IN_RUBBLES = BigDecimal(15000)
+val DOLLAR_TO_RUBBLE = BigDecimal(63.47)
 
 enum class OperationType { Income, Paid }
 
