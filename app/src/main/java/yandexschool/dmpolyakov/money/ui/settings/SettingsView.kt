@@ -1,8 +1,8 @@
 package yandexschool.dmpolyakov.money.ui.settings
 
-import yandexschool.dmpolyakov.money.mvp.MvpView
+import yandexschool.dmpolyakov.money.ui.base.mvp.BaseMvpView
 
 
-interface SettingsView : MvpView {
+interface SettingsView : BaseMvpView {
 
 }

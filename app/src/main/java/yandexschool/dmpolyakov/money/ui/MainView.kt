@@ -1,10 +1,7 @@
 package yandexschool.dmpolyakov.money.ui
 
-import yandexschool.dmpolyakov.money.mvp.MvpView
+import yandexschool.dmpolyakov.money.ui.base.mvp.BaseMvpView
 
 
-interface MainView : MvpView {
-    fun showAboutFragment()
-    fun showTrackerFragment()
-    fun showSettingsFragment()
+interface MainView : BaseMvpView {
 }
