@@ -2,8 +2,12 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#FFFFFF</color>
 
+
+    <color name="black">#000000</color>
+    <color name="cobalt_blue">#1e213d</color>
+    <color name="dark_scarlet">#cb2821</color>
     <color name="sandy_gray_brown">#967117</color>
     <color name="saturated_green">#006b3c</color>
     <color name="silver_82">#d2bfbdbd</color>

@@ -1,11 +1,18 @@
 <resources>
     <string name="app_name" translatable="false">Money</string>
 
-    <string name="about_app_title">Трекер финансов</string>
-
-    <string name="tracker">Трекер</string>
     <string name="about">О приложении</string>
-    <string name="settings">Настройки</string>
+    <string name="about_app_title">Трекер финансов</string>
     <string name="future_module_settings">В скором времени здесь появится модуль настроек</string>
+    <string name="my_accounts">Мои счета</string>
+    <string name="no_accounts">Нет счетов</string>
+    <string name="settings">Настройки</string>
+    <string name="tracker">Трекер</string>
+    <string name="create">Создать</string>
+    <string name="cancel">Отменить</string>
+    <string name="open_new_account">Открытие нового счета</string>
+    <string name="title">Название</string>
+    <string name="initial_amount">Начальная сумма</string>
+    <string name="currency">Валюта</string>
 
 </resources>
