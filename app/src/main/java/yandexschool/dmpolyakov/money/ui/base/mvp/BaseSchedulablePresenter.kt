@@ -50,19 +50,19 @@ abstract class BaseSchedulablePresenter<View : MvpView> : MvpPresenter<View>() {
         }
     }
 
-    protected fun <T> onUi(single: Single<T>): Single<T> {
+    fun <T> onUi(single: Single<T>): Single<T> {
         return single.observeOn(AndroidSchedulers.mainThread())
     }
 
-    protected fun <T> onUi(observable: Observable<T>): Observable<T> {
+    fun <T> onUi(observable: Observable<T>): Observable<T> {
         return observable.observeOn(AndroidSchedulers.mainThread())
     }
 
-    protected fun onUi(completable: Completable): Completable {
+    fun onUi(completable: Completable): Completable {
         return completable.observeOn(AndroidSchedulers.mainThread())
     }
 
-    protected fun <T> onUi(flowable: Flowable<T>): Flowable<T> {
+    fun <T> onUi(flowable: Flowable<T>): Flowable<T> {
         return flowable.observeOn(AndroidSchedulers.mainThread())
     }
 
