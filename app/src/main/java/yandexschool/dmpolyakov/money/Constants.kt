@@ -10,7 +10,7 @@ val ACCOUNT_AMOUNT_MAX_LENGTH = 15
 
 enum class OperationType { Income, Paid }
 
-enum class Currency(val sign: String) {
-    Dollar("$"),
-    Rubble("\u20BD")
+enum class Currency(val sign: String, val shortTitle: String) {
+    Rubble("\u20BD", "RUB"),
+    Dollar("$", "USD")
 }

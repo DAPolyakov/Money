@@ -9,4 +9,5 @@ interface TrackerView : BaseMvpView {
 
     fun showBalance(count: BigDecimal, currency: Currency = Currency.Rubble)
     fun showAccounts(accounts: List<Account>)
+    fun showDialog()
 }

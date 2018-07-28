@@ -7,10 +7,10 @@ import java.text.DecimalFormat
 
 
 data class Account(
-        val id: String,
         val title: String,
         val amount: BigDecimal,
-        val currency: Currency
+        val currency: Currency,
+        val id: String = ""
 ) : IComparableItem {
 
     val balance

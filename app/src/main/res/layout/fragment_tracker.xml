@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:overScrollMode="never"
-        android:paddingBottom="48dp"
+        android:paddingBottom="96dp"
         android:paddingTop="16dp"
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,5 +21,17 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:itemCount="3"
         tools:listitem="@layout/item_account" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/addAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_add"
+        app:elevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:pressedTranslationZ="12dp" />
 
 </android.support.constraint.ConstraintLayout>

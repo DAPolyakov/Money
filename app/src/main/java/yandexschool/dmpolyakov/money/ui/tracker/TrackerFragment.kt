@@ -1,10 +1,15 @@
 package yandexschool.dmpolyakov.money.ui.tracker
 
 import android.os.Bundle
+import android.support.design.widget.TextInputLayout
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Spinner
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.delegateadapter.delegate.diff.DiffUtilCompositeAdapter
@@ -42,6 +47,8 @@ class TrackerFragment : BaseMvpFragment<TrackerPresenter>(), TrackerView {
         return presenter
     }
 
+    private lateinit var addNewAccountDialog: AlertDialog
+
     private val accountAdapter = DiffUtilCompositeAdapter.Builder()
             .add(AccountDelegateAdapter())
             .add(EmptyStateDelegateAdapter())
@@ -56,6 +63,58 @@ class TrackerFragment : BaseMvpFragment<TrackerPresenter>(), TrackerView {
 
         rv.layoutManager = LinearLayoutManager(context)
         rv.adapter = accountAdapter
+
+        addAccount.setOnClickListener {
+            showDialog()
+        }
+
+        addNewAccountDialog = AlertDialog.Builder(view.context)
+                .setView(R.layout.dialog_add_new_account)
+                .setCancelable(false)
+                .create()
+    }
+
+    override fun showDialog() {
+        with(addNewAccountDialog) {
+            show()
+
+            val title = findViewById<TextInputLayout>(R.id.title)
+            val amountInput = findViewById<EditText>(R.id.inputAmount)
+
+            val currency = findViewById<Spinner>(R.id.spinnerCurrency)
+            currency?.adapter = CurrencyArrayAdapter(context, Currency.values().toList())
+
+            findViewById<View>(R.id.cancel)?.setOnClickListener {
+                dismiss()
+            }
+
+            findViewById<View>(R.id.create)?.setOnClickListener {
+                var amount = amountInput?.text.toString()
+                if (amount.isBlank()) amount = "0"
+
+                if (title?.editText?.text.toString().isBlank()) {
+                    title?.error = "Введите название счета"
+                    return@setOnClickListener
+                }
+
+                presenter.addAccount(
+                        Account(
+                                title = title?.editText?.text.toString(),
+                                amount = BigDecimal(amount),
+                                currency = currency?.selectedItem as Currency))
+
+                dismiss()
+            }
+
+            setOnDismissListener {
+                Log.wtf("dima", "DISMISS")
+                title?.editText?.setText("")
+                title?.isErrorEnabled = false
+                amountInput?.setText("")
+                currency?.setSelection(0)
+                title?.requestFocus()
+            }
+        }
     }
 
     override fun showBalance(count: BigDecimal, currency: Currency) {
@@ -65,7 +124,7 @@ class TrackerFragment : BaseMvpFragment<TrackerPresenter>(), TrackerView {
     override fun showAccounts(accounts: List<Account>) {
         val data = ArrayList<IComparableItem>()
         if (accounts.isNotEmpty()) {
-            data.add(SubtitleViewModel("${getString(R.string.list_of_accounts)}:"))
+            data.add(SubtitleViewModel("${getString(R.string.my_accounts)}:"))
             data.addAll(accounts)
         }
         data.add(EmptyStateViewModel(getString(R.string.no_accounts)))
@@ -73,4 +132,11 @@ class TrackerFragment : BaseMvpFragment<TrackerPresenter>(), TrackerView {
     }
 
     override fun getLogName() = "TrackerFragment"
+
+    override fun onStop() {
+        if (addNewAccountDialog.isShowing) {
+            addNewAccountDialog.dismiss()
+        }
+        super.onStop()
+    }
 }
