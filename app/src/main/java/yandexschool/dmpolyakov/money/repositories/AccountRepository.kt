@@ -8,31 +8,19 @@ import yandexschool.dmpolyakov.money.models.Account
 
 class AccountRepository() {
 
-    fun getAccounts() = getFakeAccounts()
+    private val fakeAccounts = ArrayList<Account>()
 
-    private fun getFakeAccounts(): Single<List<Account>> {
-        val list = ArrayList<Account>()
-
-        list.add(Account("1", "Рабочий", 20700.toBigDecimal(), Currency.Rubble))
-        list.add(Account("2", "Копилочка", 256000.toBigDecimal(), Currency.Rubble))
-        list.add(Account("3", "Заграничный", 500.toBigDecimal(), Currency.Dollar))
-
-        list.add(Account("1", "Рабочий", 20700.toBigDecimal(), Currency.Rubble))
-        list.add(Account("2", "Копилочка", 256000.toBigDecimal(), Currency.Rubble))
-        list.add(Account("3", "Заграничный", 500.toBigDecimal(), Currency.Dollar))
-
-        list.add(Account("1", "Рабочий", 20700.toBigDecimal(), Currency.Rubble))
-        list.add(Account("2", "Копилочка", 256000.toBigDecimal(), Currency.Rubble))
-        list.add(Account("3", "Заграничный", 500.toBigDecimal(), Currency.Dollar))
-
-        list.add(Account("1", "Рабочий", 20700.toBigDecimal(), Currency.Rubble))
-        list.add(Account("2", "Копилочка", 256000.toBigDecimal(), Currency.Rubble))
-        list.add(Account("3", "Заграничный", 500.toBigDecimal(), Currency.Dollar))
-
-        list.add(Account("1", "Рабочий", 20700.toBigDecimal(), Currency.Rubble))
-        list.add(Account("2", "Копилочка", 256000.toBigDecimal(), Currency.Rubble))
-        list.add(Account("3", "Заграничный", 500.toBigDecimal(), Currency.Dollar))
-
-        return Single.fromObservable(Observable.fromArray(list))
+    init {
+        createFakeAccounts()
     }
+
+    fun getAccounts(): Single<ArrayList<Account>> =
+            Single.fromObservable(Observable.fromArray(fakeAccounts))
+
+    private fun createFakeAccounts() {
+        fakeAccounts.add(Account("1", "Рабочий", 20700.toBigDecimal(), Currency.Rubble))
+        fakeAccounts.add(Account("2", "Копилочка", 256000.toBigDecimal(), Currency.Rubble))
+        fakeAccounts.add(Account("3", "Заграничный", 500.toBigDecimal(), Currency.Dollar))
+    }
+
 }

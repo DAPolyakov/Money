@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name" translatable="false">Money</string>
 
-    <string name="about_app_title">Трекер финансов</string>
-
-    <string name="tracker">Трекер</string>
     <string name="about">О приложении</string>
-    <string name="settings">Настройки</string>
+    <string name="about_app_title">Трекер финансов</string>
     <string name="future_module_settings">В скором времени здесь появится модуль настроек</string>
+    <string name="list_of_accounts">Список счетов</string>
+    <string name="no_accounts">Нет счетов</string>
+    <string name="settings">Настройки</string>
+    <string name="tracker">Трекер</string>
 
 </resources>

@@ -25,11 +25,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:maxLines="3"
+            android:paddingEnd="16dp"
             android:textColor="#130000"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/balance"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/balance"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/balance"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="На кукурузник" />
 
         <TextView
@@ -38,14 +41,14 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
+            android:maxLength="16"
             android:textAlignment="textEnd"
             android:textColor="@color/saturated_green"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="150000 $" />
+            tools:text="250000.00 $" />
 
     </android.support.constraint.ConstraintLayout>
 
