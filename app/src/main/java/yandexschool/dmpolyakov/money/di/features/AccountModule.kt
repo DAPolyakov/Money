@@ -2,8 +2,8 @@ package yandexschool.dmpolyakov.money.di.features
 
 import dagger.Module
 import dagger.Provides
-import dagger.android.ContributesAndroidInjector
 import yandexschool.dmpolyakov.money.navigation.MainRouter
+import yandexschool.dmpolyakov.money.repositories.AccountRepository
 import yandexschool.dmpolyakov.money.ui.tracker.account.AccountPresenter
 
 
@@ -14,7 +14,8 @@ abstract class AccountModule {
     companion object {
 
         @Provides
-        fun provideAccountPresenter(router: MainRouter) = AccountPresenter(router)
+        fun provideAccountPresenter(router: MainRouter, accountRep: AccountRepository) =
+                AccountPresenter(router, accountRep)
     }
 
 }

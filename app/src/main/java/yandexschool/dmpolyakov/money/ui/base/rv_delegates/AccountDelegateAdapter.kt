@@ -6,7 +6,7 @@ import yandexschool.dmpolyakov.money.R
 import yandexschool.dmpolyakov.money.models.Account
 import yandexschool.dmpolyakov.money.utils.getCompatColor
 
-class AccountDelegateAdapter() : KDelegateAdapter<Account>() {
+class AccountDelegateAdapter(private val onAccount: (Account) -> Unit) : KDelegateAdapter<Account>() {
 
     override fun getLayoutId() = R.layout.item_account
 
@@ -15,6 +15,10 @@ class AccountDelegateAdapter() : KDelegateAdapter<Account>() {
     override fun onBind(item: Account, viewHolder: KViewHolder) = with(viewHolder) {
         title.text = item.title
         balance.text = item.balance
+
+        viewHolder.itemView.setOnClickListener {
+            onAccount(item)
+        }
 
         balance.setTextColor(viewHolder.itemView.context.getCompatColor(
                 when {

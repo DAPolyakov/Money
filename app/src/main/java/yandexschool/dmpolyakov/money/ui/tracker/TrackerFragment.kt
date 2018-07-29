@@ -50,7 +50,9 @@ class TrackerFragment : BaseMvpFragment<TrackerPresenter>(), TrackerView {
     private lateinit var addNewAccountDialog: AlertDialog
 
     private val accountAdapter = DiffUtilCompositeAdapter.Builder()
-            .add(AccountDelegateAdapter())
+            .add(AccountDelegateAdapter {
+                presenter.onAccountClick(it)
+            })
             .add(EmptyStateDelegateAdapter())
             .add(SubtitleDelegateAdapter())
             .build()
@@ -65,7 +67,6 @@ class TrackerFragment : BaseMvpFragment<TrackerPresenter>(), TrackerView {
         rv.adapter = accountAdapter
 
         addAccount.setOnClickListener {
-//            presenter.onAccountClick()
             showDialog()
         }
 

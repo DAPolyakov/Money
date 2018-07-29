@@ -52,7 +52,7 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainView {
             Screens.TRACKER -> TrackerFragment.instance
             Screens.SETTINGS -> SettingsFragment.instance
             Screens.ABOUT -> AboutFragment.instance
-            Screens.ACCOUNT -> AccountFragment.instance
+            Screens.ACCOUNT -> AccountFragment.newInstance(data.toString())
         }
     }
 

@@ -40,7 +40,7 @@ class MainRouter : BaseRouter() {
         applyCommand(Replace(Screens.ABOUT.name, Bundle()))
     }
 
-    fun showAccountScreen() {
-        applyCommand(Forward(Screens.ACCOUNT.name, Bundle()))
+    fun showAccountScreen(accountId: String) {
+        applyCommand(Forward(Screens.ACCOUNT.name, accountId))
     }
 }
