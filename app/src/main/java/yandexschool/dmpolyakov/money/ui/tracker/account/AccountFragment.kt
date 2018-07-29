@@ -8,10 +8,12 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.fragment_account.*
 import yandexschool.dmpolyakov.money.R
+import yandexschool.dmpolyakov.money.models.FinanceOperation
 import yandexschool.dmpolyakov.money.navigation.MainRouter
 import yandexschool.dmpolyakov.money.ui.about.AboutFragment
 import yandexschool.dmpolyakov.money.ui.base.ViewPagerAdapter
 import yandexschool.dmpolyakov.money.ui.base.mvp.BaseMvpFragment
+import yandexschool.dmpolyakov.money.ui.tracker.account.operations.OperationsFragment
 import javax.inject.Inject
 
 
@@ -50,8 +52,6 @@ class AccountFragment() : BaseMvpFragment<AccountPresenter>(), AccountView {
             router.back()
         }
 
-        initTabs()
-
         presenter.initAccount(arguments!!.getString(EXTRA_ACCOUNT_ID, ""))
     }
 
@@ -63,10 +63,16 @@ class AccountFragment() : BaseMvpFragment<AccountPresenter>(), AccountView {
         this.balance.text = balance
     }
 
-    private fun initTabs() {
+    override fun showTabs(operations: List<FinanceOperation>) {
         tabs.setupWithViewPager(viewPager)
+
+        val fragmentOperations = OperationsFragment()
+        val bundle = Bundle()
+        bundle.putParcelableArrayList("operations", ArrayList(operations))
+        fragmentOperations.arguments = bundle
+
         val adapter = ViewPagerAdapter(childFragmentManager)
-        adapter.addFragment(AboutFragment(), "История операций")
+        adapter.addFragment(fragmentOperations, "История операций")
         adapter.addFragment(AboutFragment(), "Настройки")
         viewPager.adapter = adapter
     }

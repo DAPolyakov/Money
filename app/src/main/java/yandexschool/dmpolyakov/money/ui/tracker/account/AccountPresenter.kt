@@ -17,6 +17,7 @@ class AccountPresenter @Inject constructor(
                 {
                     viewState.showTitle(it.title)
                     viewState.showBalance(it.balance)
+                    viewState.showTabs(it.operations)
                 },
                 {
                     // TODO

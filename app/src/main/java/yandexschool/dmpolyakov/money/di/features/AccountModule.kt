@@ -5,6 +5,7 @@ import dagger.Provides
 import yandexschool.dmpolyakov.money.navigation.MainRouter
 import yandexschool.dmpolyakov.money.repositories.AccountRepository
 import yandexschool.dmpolyakov.money.ui.tracker.account.AccountPresenter
+import yandexschool.dmpolyakov.money.ui.tracker.account.operations.OperationsPresenter
 
 
 @Module
@@ -16,6 +17,10 @@ abstract class AccountModule {
         @Provides
         fun provideAccountPresenter(router: MainRouter, accountRep: AccountRepository) =
                 AccountPresenter(router, accountRep)
+
+        @Provides
+        fun provideOperationsPresenter(router: MainRouter) = OperationsPresenter(router)
+
     }
 
 }

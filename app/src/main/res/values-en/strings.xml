@@ -14,4 +14,5 @@
     <string name="initial_amount">Initial amount</string>
     <string name="currency">Currency</string>
     <string name="enter_account_title">Enter the title of the account</string>
+    <string name="empty_operations_list">No operations</string>
 </resources>
