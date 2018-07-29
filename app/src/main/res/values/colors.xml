@@ -6,6 +6,7 @@
 
 
     <color name="black">#000000</color>
+    <color name="black2">#7f000000</color>
     <color name="cobalt_blue">#1e213d</color>
     <color name="dark_pastel_green">#03c03c</color>
     <color name="dark_scarlet">#cb2821</color>

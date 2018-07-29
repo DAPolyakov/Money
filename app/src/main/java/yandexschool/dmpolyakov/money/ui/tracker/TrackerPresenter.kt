@@ -50,7 +50,7 @@ class TrackerPresenter @Inject constructor(private val router: MainRouter,
     }
 
     private fun getBalanceInRubble(): BigDecimal {
-        return BALANCE_IN_RUBBLES
+        return BALANCE_IN_RUBBLES.toBigDecimal()
     }
 
 }

@@ -95,7 +95,7 @@ class TrackerFragment : BaseMvpFragment<TrackerPresenter>(), TrackerView {
                 if (amount.isBlank()) amount = "0"
 
                 if (title?.editText?.text.toString().isBlank()) {
-                    title?.error = getString(R.string.enter_account_title)
+                    title?.error = getString(R.string.error_empty_title)
                     return@setOnClickListener
                 }
 
