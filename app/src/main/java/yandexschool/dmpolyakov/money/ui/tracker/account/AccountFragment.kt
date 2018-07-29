@@ -8,7 +8,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.fragment_account.*
 import yandexschool.dmpolyakov.money.R
-import yandexschool.dmpolyakov.money.models.FinanceOperation
+import yandexschool.dmpolyakov.money.models.Account
 import yandexschool.dmpolyakov.money.navigation.MainRouter
 import yandexschool.dmpolyakov.money.ui.about.AboutFragment
 import yandexschool.dmpolyakov.money.ui.base.ViewPagerAdapter
@@ -63,12 +63,12 @@ class AccountFragment() : BaseMvpFragment<AccountPresenter>(), AccountView {
         this.balance.text = balance
     }
 
-    override fun showTabs(operations: List<FinanceOperation>) {
+    override fun showTabs(account: Account) {
         tabs.setupWithViewPager(viewPager)
 
         val fragmentOperations = OperationsFragment()
         val bundle = Bundle()
-        bundle.putParcelableArrayList("operations", ArrayList(operations))
+        bundle.putParcelable("account", account)
         fragmentOperations.arguments = bundle
 
         val adapter = ViewPagerAdapter(childFragmentManager)

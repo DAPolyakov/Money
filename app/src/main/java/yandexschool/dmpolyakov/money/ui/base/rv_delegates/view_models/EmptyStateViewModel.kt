@@ -7,7 +7,9 @@ data class EmptyStateViewModel(
         val description: String
 ) : IComparableItem {
 
-    override fun id() = description
-    override fun content() = description
+    private val id = System.currentTimeMillis()
+
+    override fun id() = id
+    override fun content() = id
 
 }

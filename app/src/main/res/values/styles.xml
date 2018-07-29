@@ -15,6 +15,26 @@
         </item>
     </style>
 
+    <style name="RadioButton">
+        <item name="colorControlNormal">@color/smoky_white</item>
+    </style>
+
+    <style name="RadioButton.Positive">
+        <item name="colorControlActivated">@color/saturated_green</item>
+    </style>
+
+    <style name="RadioButton.Negative">
+        <item name="colorControlActivated">@color/dark_scarlet</item>
+    </style>
+
+    <style name="FloatingActionButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:src">@drawable/ic_add</item>
+    </style>
+
     <style name="DialogButton">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>

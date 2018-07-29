@@ -18,14 +18,15 @@ class OperationsDelegateAdapter : KDelegateAdapter<FinanceOperation>() {
 
         date.text = item.date
         title.text = item.title
-
+        icon.setImageResource(item.category.icon)
+        
         val s = "${item.amount} ${item.currency.sign}"
         amount.text = s
 
         amount.setTextColor(viewHolder.itemView.context.getCompatColor(
                 when (item.type) {
                     OperationType.Income -> R.color.saturated_green
-                    OperationType.Paid -> R.color.dark_scarlet
+                    OperationType.Expense -> R.color.dark_scarlet
                 }
         ))
 

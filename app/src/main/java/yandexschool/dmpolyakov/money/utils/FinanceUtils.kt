@@ -22,13 +22,13 @@ fun sumFinanceOperations(operations: List<FinanceOperation>, resultCurrency: Cur
 fun BigDecimal.toRubbles(sourceCurrency: Currency): BigDecimal {
     return when (sourceCurrency) {
         Currency.Rubble -> this
-        Currency.Dollar -> this * DOLLAR_TO_RUBBLE
+        Currency.Dollar -> this.multiply(DOLLAR_TO_RUBBLE.toBigDecimal())
     }
 }
 
 fun BigDecimal.toDollars(sourceCurrency: Currency): BigDecimal {
     return when (sourceCurrency) {
-        Currency.Rubble -> this / DOLLAR_TO_RUBBLE
+        Currency.Rubble -> this.divide(DOLLAR_TO_RUBBLE.toBigDecimal(), 2, BigDecimal.ROUND_HALF_UP)
         Currency.Dollar -> this
     }
 }

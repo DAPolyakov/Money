@@ -19,7 +19,8 @@ abstract class AccountModule {
                 AccountPresenter(router, accountRep)
 
         @Provides
-        fun provideOperationsPresenter(router: MainRouter) = OperationsPresenter(router)
+        fun provideOperationsPresenter(router: MainRouter, accountRep: AccountRepository) =
+                OperationsPresenter(router, accountRep)
 
     }
 

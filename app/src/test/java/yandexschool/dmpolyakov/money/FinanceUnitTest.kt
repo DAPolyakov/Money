@@ -46,8 +46,8 @@ class FinanceUnitTest {
     @Test
     fun sum_operations_only_paid() {
         val op = listOf(
-                FinanceOperation(OperationType.Paid, 100.toBigDecimal(), Currency.Rubble),
-                FinanceOperation(OperationType.Paid, 3.toBigDecimal(), Currency.Dollar)
+                FinanceOperation(OperationType.Expense, 100.toBigDecimal(), Currency.Rubble),
+                FinanceOperation(OperationType.Expense, 3.toBigDecimal(), Currency.Dollar)
         )
 
         val res = (-100).toRubbles(Currency.Rubble) - 3.toRubbles(Currency.Dollar)

@@ -5,6 +5,7 @@ import com.example.delegateadapter.delegate.diff.IComparableItem
 import kotlinx.android.parcel.Parcelize
 import yandexschool.dmpolyakov.money.Currency
 import yandexschool.dmpolyakov.money.DOLLAR_TO_RUBBLE
+import yandexschool.dmpolyakov.money.OperationCategory
 import yandexschool.dmpolyakov.money.OperationType
 import java.math.BigDecimal
 
@@ -13,6 +14,7 @@ data class FinanceOperation(
         var title: String,
         val amount: BigDecimal,
         val type: OperationType,
+        val category: OperationCategory,
         var currency: Currency,
         var date: String,
         var id: String = ""
@@ -21,13 +23,13 @@ data class FinanceOperation(
 
     fun getDifferenceInRubbles(): BigDecimal {
         val rubbles = when (currency) {
-            Currency.Dollar -> amount * DOLLAR_TO_RUBBLE
+            Currency.Dollar -> amount * DOLLAR_TO_RUBBLE.toBigDecimal()
             Currency.Rubble -> amount
         }
 
         return when (type) {
             OperationType.Income -> rubbles
-            OperationType.Paid -> rubbles * BigDecimal(-1)
+            OperationType.Expense -> rubbles * BigDecimal(-1)
         }
     }
 

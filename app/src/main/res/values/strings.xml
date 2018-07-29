@@ -14,7 +14,21 @@
     <string name="title">Название</string>
     <string name="initial_amount">Начальная сумма</string>
     <string name="currency">Валюта</string>
-    <string name="enter_account_title">Введите название счета</string>
+    <string name="error_empty_title">Введите название</string>
     <string name="empty_operations_list">Нет операций</string>
+    <string name="add">Добавить</string>
+    <string name="sum">Сумма</string>
+    <string name="finance_operation">Финансовая операция</string>
+    <string name="error_empty_amount">Введите сумму</string>
+    <string name="income">Доход</string>
+    <string name="expense">Расход</string>
+    <string name="category">Категория</string>
+    <string name="category_salary">Зарплата</string>
+    <string name="category_gift">Подарок</string>
+    <string name="category_other">Другая</string>
+    <string name="category_transport">Транспорт</string>
+    <string name="category_products">Продукты</string>
+    <string name="category_health">Здоровье</string>
+    <string name="category_education">Образование</string>
 
 </resources>
