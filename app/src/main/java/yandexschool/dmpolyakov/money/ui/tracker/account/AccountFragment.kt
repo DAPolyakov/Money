@@ -1,4 +1,4 @@
-package yandexschool.dmpolyakov.money.ui.about
+package yandexschool.dmpolyakov.money.ui.tracker.account
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,17 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import kotlinx.android.synthetic.main.fragment_about.*
 import yandexschool.dmpolyakov.money.R
 import yandexschool.dmpolyakov.money.navigation.MainRouter
 import yandexschool.dmpolyakov.money.ui.base.mvp.BaseMvpFragment
 import javax.inject.Inject
 
 
-class AboutFragment : BaseMvpFragment<AboutPresenter>(), AboutView {
+class AccountFragment() : BaseMvpFragment<AccountPresenter>(), AccountView {
 
     companion object {
-        val instance = AboutFragment()
+        val instance = AccountFragment()
     }
 
     @Inject
@@ -24,18 +23,13 @@ class AboutFragment : BaseMvpFragment<AboutPresenter>(), AboutView {
 
     @Inject
     @InjectPresenter
-    lateinit var presenter: AboutPresenter
+    lateinit var presenter: AccountPresenter
 
     @ProvidePresenter
     override fun providePresenter() = presenter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
-            : View = inflater.inflate(R.layout.fragment_about, container, false)
+            : View = inflater.inflate(R.layout.fragment_account, container, false)
 
-    override fun showVersion(version: String) {
-        val s = "${getString(R.string.about_app_title)} v$version"
-        title.text = s
-    }
-
-    override fun getLogName() = "AboutFragment"
+    override fun getLogName() = "AccountFragment"
 }

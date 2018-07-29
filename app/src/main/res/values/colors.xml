@@ -11,6 +11,8 @@
     <color name="sandy_gray_brown">#967117</color>
     <color name="saturated_green">#006b3c</color>
     <color name="silver_82">#d2bfbdbd</color>
+    <color name="smoky_white">#f1f1f1</color>
+    <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
 
 </resources>

@@ -65,6 +65,7 @@ class TrackerFragment : BaseMvpFragment<TrackerPresenter>(), TrackerView {
         rv.adapter = accountAdapter
 
         addAccount.setOnClickListener {
+//            presenter.onAccountClick()
             showDialog()
         }
 
@@ -93,7 +94,7 @@ class TrackerFragment : BaseMvpFragment<TrackerPresenter>(), TrackerView {
                 if (amount.isBlank()) amount = "0"
 
                 if (title?.editText?.text.toString().isBlank()) {
-                    title?.error = "Введите название счета"
+                    title?.error = getString(R.string.enter_account_title)
                     return@setOnClickListener
                 }
 

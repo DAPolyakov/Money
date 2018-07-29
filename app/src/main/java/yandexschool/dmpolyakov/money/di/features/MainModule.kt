@@ -8,13 +8,14 @@ import yandexschool.dmpolyakov.money.ui.MainPresenter
 import yandexschool.dmpolyakov.money.ui.about.AboutFragment
 import yandexschool.dmpolyakov.money.ui.settings.SettingsFragment
 import yandexschool.dmpolyakov.money.ui.tracker.TrackerFragment
+import yandexschool.dmpolyakov.money.ui.tracker.account.AccountFragment
 
 
 @Module
 abstract class MainModule {
 
     @ContributesAndroidInjector(modules = [TrackerModule::class])
-    internal abstract fun contributeTrackerFragment(): TrackerFragment
+    abstract fun contributeTrackerFragment(): TrackerFragment
 
     @ContributesAndroidInjector(modules = [SettingsModule::class])
     abstract fun contributeSettingsFragment(): SettingsFragment
@@ -22,12 +23,14 @@ abstract class MainModule {
     @ContributesAndroidInjector(modules = [AboutModule::class])
     abstract fun contributeAboutFragment(): AboutFragment
 
+    @ContributesAndroidInjector(modules = [AccountModule::class])
+    abstract fun contributeAccountFragment(): AccountFragment
+
     @Module
     companion object {
 
         @Provides
-        fun provideMainPresenter(router: MainRouter): MainPresenter {
-            return MainPresenter(router)
-        }
+        fun provideMainPresenter(router: MainRouter) = MainPresenter(router)
+
     }
 }
