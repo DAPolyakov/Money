@@ -14,5 +14,6 @@
     <string name="title">Название</string>
     <string name="initial_amount">Начальная сумма</string>
     <string name="currency">Валюта</string>
+    <string name="enter_account_title">Введите название счета</string>
 
 </resources>

@@ -12,7 +12,9 @@ import javax.inject.Inject
 
 
 @InjectViewState
-class TrackerPresenter @Inject constructor(router: MainRouter, val accountRep: AccountRepository) : BaseMvpPresenter<TrackerView>(router) {
+class TrackerPresenter @Inject constructor(private val router: MainRouter,
+                                           private val accountRep: AccountRepository) : BaseMvpPresenter<TrackerView>(router) {
+
     override fun getScreenTag(): String {
         return "TrackerPresenter"
     }
@@ -28,6 +30,10 @@ class TrackerPresenter @Inject constructor(router: MainRouter, val accountRep: A
         }, {
             // TODO
         }))
+    }
+
+    fun onAccountClick(account: Account) {
+        router.showAccountScreen(account.id)
     }
 
     private fun updateAccounts() {

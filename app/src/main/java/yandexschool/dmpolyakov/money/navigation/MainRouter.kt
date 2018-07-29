@@ -39,4 +39,8 @@ class MainRouter : BaseRouter() {
     fun showAboutScreen() {
         applyCommand(Replace(Screens.ABOUT.name, Bundle()))
     }
+
+    fun showAccountScreen(accountId: String) {
+        applyCommand(Forward(Screens.ACCOUNT.name, accountId))
+    }
 }

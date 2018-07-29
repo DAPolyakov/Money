@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.delegateadapter.delegate.KDelegateAdapter
+import kotlinx.android.synthetic.main.item_empty_state.*
 import yandexschool.dmpolyakov.money.R
 import yandexschool.dmpolyakov.money.ui.base.rv_delegates.view_models.EmptyStateViewModel
 
@@ -19,8 +20,7 @@ class EmptyStateDelegateAdapter() : KDelegateAdapter<EmptyStateViewModel>() {
         return items[position] is EmptyStateViewModel
     }
 
-    override fun onBind(item: EmptyStateViewModel, viewHolder: KViewHolder) {
-        val description = viewHolder.itemView.findViewById<TextView>(R.id.description)
+    override fun onBind(item: EmptyStateViewModel, viewHolder: KViewHolder) = with(viewHolder) {
         description.text = item.description
 
         if (isVisible) {

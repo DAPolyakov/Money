@@ -29,10 +29,8 @@ class AboutFragment : BaseMvpFragment<AboutPresenter>(), AboutView {
     @ProvidePresenter
     override fun providePresenter() = presenter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_about, container, false)
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
+            : View = inflater.inflate(R.layout.fragment_about, container, false)
 
     override fun showVersion(version: String) {
         val s = "${getString(R.string.about_app_title)} v$version"

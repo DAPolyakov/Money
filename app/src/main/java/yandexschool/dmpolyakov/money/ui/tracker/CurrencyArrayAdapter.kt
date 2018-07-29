@@ -17,11 +17,9 @@ class CurrencyArrayAdapter(context: Context, private val items: List<Currency>)
         if (view == null)
             view = View.inflate(context, android.R.layout.simple_spinner_dropdown_item, null)
 
-        (view as? TextView)?.let {
-            val currency = items[position]
-            val s = "${currency.shortTitle} ${currency.sign}"
-            it.text = s
-        }
+        val currency = items[position]
+        val s = "${currency.shortTitle} ${currency.sign}"
+        (view as TextView).text = s
 
         return view
     }

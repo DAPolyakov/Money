@@ -23,6 +23,11 @@ class AccountRepository() {
         return Completable.complete()
     }
 
+    fun getAccount(id: String): Single<Account> {
+        return Single.just(fakeAccounts.find { it.id == id }
+                ?: throw Exception("Account not found"))
+    }
+
     private fun createFakeAccounts() {
         fakeAccounts.add(Account("Рабочий", 20700.toBigDecimal(), Currency.Rubble, "1"))
         fakeAccounts.add(Account("Копилочка", 256000.toBigDecimal(), Currency.Rubble, "2"))

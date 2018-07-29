@@ -6,6 +6,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
+
+    androidExtensions {
+        experimental = true
+    }
+
     signingConfigs {
         config {
             keyAlias 'FinanceTracker'

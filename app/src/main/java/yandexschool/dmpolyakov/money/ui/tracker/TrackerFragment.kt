@@ -50,7 +50,9 @@ class TrackerFragment : BaseMvpFragment<TrackerPresenter>(), TrackerView {
     private lateinit var addNewAccountDialog: AlertDialog
 
     private val accountAdapter = DiffUtilCompositeAdapter.Builder()
-            .add(AccountDelegateAdapter())
+            .add(AccountDelegateAdapter {
+                presenter.onAccountClick(it)
+            })
             .add(EmptyStateDelegateAdapter())
             .add(SubtitleDelegateAdapter())
             .build()
@@ -93,7 +95,7 @@ class TrackerFragment : BaseMvpFragment<TrackerPresenter>(), TrackerView {
                 if (amount.isBlank()) amount = "0"
 
                 if (title?.editText?.text.toString().isBlank()) {
-                    title?.error = "Введите название счета"
+                    title?.error = getString(R.string.enter_account_title)
                     return@setOnClickListener
                 }
 
