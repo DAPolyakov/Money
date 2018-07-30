@@ -41,6 +41,18 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainView {
         if (savedInstanceState == null) {
             showInitialFragment()
         }
+
+//        NetworkModule.currencyService.getRatio("USD", "RUB").subscribe(
+//                {
+//                    val a = 2
+//                    val b = a + 11
+//                },
+//                {
+//                    val a = 2
+//                    val b = a + 11
+//                }
+//        )
+
     }
 
     private fun showInitialFragment() {
