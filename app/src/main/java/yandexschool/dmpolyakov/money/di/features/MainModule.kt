@@ -4,17 +4,21 @@ import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
 import yandexschool.dmpolyakov.money.navigation.MainRouter
+import yandexschool.dmpolyakov.money.network.NetworkModule
 import yandexschool.dmpolyakov.money.ui.MainPresenter
 import yandexschool.dmpolyakov.money.ui.about.AboutFragment
 import yandexschool.dmpolyakov.money.ui.settings.SettingsFragment
 import yandexschool.dmpolyakov.money.ui.tracker.TrackerFragment
+import yandexschool.dmpolyakov.money.ui.tracker.account.AccountFragment
+import yandexschool.dmpolyakov.money.ui.tracker.account.operations.OperationsFragment
+import yandexschool.dmpolyakov.money.ui.tracker.account.settings.AccountSettingsFragment
 
 
 @Module
 abstract class MainModule {
 
     @ContributesAndroidInjector(modules = [TrackerModule::class])
-    internal abstract fun contributeTrackerFragment(): TrackerFragment
+    abstract fun contributeTrackerFragment(): TrackerFragment
 
     @ContributesAndroidInjector(modules = [SettingsModule::class])
     abstract fun contributeSettingsFragment(): SettingsFragment
@@ -22,12 +26,21 @@ abstract class MainModule {
     @ContributesAndroidInjector(modules = [AboutModule::class])
     abstract fun contributeAboutFragment(): AboutFragment
 
+    @ContributesAndroidInjector(modules = [AccountModule::class])
+    abstract fun contributeAccountFragment(): AccountFragment
+
+    @ContributesAndroidInjector(modules = [AccountModule::class])
+    abstract fun contributeOperationsFragment(): OperationsFragment
+
+    @ContributesAndroidInjector(modules = [AccountModule::class])
+    abstract fun contributeAccountSettingsFragment(): AccountSettingsFragment
+
     @Module
     companion object {
 
         @Provides
-        fun provideMainPresenter(router: MainRouter): MainPresenter {
-            return MainPresenter(router)
-        }
+        fun provideMainPresenter(router: MainRouter, network: NetworkModule) =
+                MainPresenter(router, network)
+
     }
 }

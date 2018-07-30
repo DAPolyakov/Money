@@ -1,14 +1,32 @@
 package yandexschool.dmpolyakov.money.ui
 
 import com.arellomobile.mvp.InjectViewState
+import yandexschool.dmpolyakov.money.DOLLAR_TO_RUBBLE
 import yandexschool.dmpolyakov.money.R
 import yandexschool.dmpolyakov.money.navigation.MainRouter
+import yandexschool.dmpolyakov.money.network.NetworkModule
 import yandexschool.dmpolyakov.money.ui.base.mvp.BaseMvpPresenter
 import javax.inject.Inject
 
 
 @InjectViewState
-class MainPresenter @Inject constructor(var router: MainRouter) : BaseMvpPresenter<MainView>(router) {
+class MainPresenter @Inject constructor(var router: MainRouter,
+                                        var network: NetworkModule) : BaseMvpPresenter<MainView>(router) {
+
+    override fun onFirstViewAttach() {
+        super.onFirstViewAttach()
+        updateExchangeRates()
+    }
+
+    private fun updateExchangeRates() {
+        network.currencyService.getRatio("USD", "RUB").subscribe(
+                { DOLLAR_TO_RUBBLE = it },
+                {
+                    viewState.showError(it)
+                }
+        )
+    }
+
 
     fun onItem(itemId: Int) {
         when (itemId) {

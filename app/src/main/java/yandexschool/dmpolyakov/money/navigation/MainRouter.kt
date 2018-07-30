@@ -1,18 +1,18 @@
 package yandexschool.dmpolyakov.money.navigation
 
 import android.os.Bundle
-import ru.terrakok.cicerone.BaseRouter
 import ru.terrakok.cicerone.Navigator
+import ru.terrakok.cicerone.Router
 import ru.terrakok.cicerone.commands.Back
 import ru.terrakok.cicerone.commands.Command
 import ru.terrakok.cicerone.commands.Forward
 import ru.terrakok.cicerone.commands.Replace
 
 
-class MainRouter : BaseRouter() {
-    private var navigator: Navigator? = null
+class MainRouter : Router() {
+    private var navigator: BaseNavigator? = null
 
-    fun setNavigator(navigator: Navigator) {
+    fun setNavigator(navigator: BaseNavigator) {
         this.navigator = navigator
     }
 
@@ -38,5 +38,9 @@ class MainRouter : BaseRouter() {
 
     fun showAboutScreen() {
         applyCommand(Replace(Screens.ABOUT.name, Bundle()))
+    }
+
+    fun showAccountScreen(accountId: String) {
+        applyCommand(Forward(Screens.ACCOUNT.name, accountId))
     }
 }

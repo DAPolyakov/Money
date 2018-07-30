@@ -9,6 +9,7 @@ import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import io.reactivex.subjects.Subject
 
 
 abstract class BaseSchedulablePresenter<View : MvpView> : MvpPresenter<View>() {
@@ -50,20 +51,24 @@ abstract class BaseSchedulablePresenter<View : MvpView> : MvpPresenter<View>() {
         }
     }
 
-    protected fun <T> onUi(single: Single<T>): Single<T> {
+    fun <T> onUi(single: Single<T>): Single<T> {
         return single.observeOn(AndroidSchedulers.mainThread())
     }
 
-    protected fun <T> onUi(observable: Observable<T>): Observable<T> {
+    fun <T> onUi(observable: Observable<T>): Observable<T> {
         return observable.observeOn(AndroidSchedulers.mainThread())
     }
 
-    protected fun onUi(completable: Completable): Completable {
+    fun onUi(completable: Completable): Completable {
         return completable.observeOn(AndroidSchedulers.mainThread())
     }
 
-    protected fun <T> onUi(flowable: Flowable<T>): Flowable<T> {
+    fun <T> onUi(flowable: Flowable<T>): Flowable<T> {
         return flowable.observeOn(AndroidSchedulers.mainThread())
+    }
+
+    fun <T> onUi(subject: Subject<T>): Observable<T> {
+        return subject.observeOn(AndroidSchedulers.mainThread())
     }
 
 }

@@ -15,6 +15,42 @@
         </item>
     </style>
 
+    <style name="RadioButton">
+        <item name="colorControlNormal">@color/smoky_white</item>
+    </style>
+
+    <style name="RadioButton.Positive">
+        <item name="colorControlActivated">@color/saturated_green</item>
+    </style>
+
+    <style name="RadioButton.Negative">
+        <item name="colorControlActivated">@color/dark_scarlet</item>
+    </style>
+
+    <style name="FloatingActionButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:src">@drawable/ic_add</item>
+    </style>
+
+    <style name="DialogButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@drawable/ripple_rectangle</item>
+    </style>
+
     <style name="TextLabelMedium">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -23,8 +59,30 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/sandy_gray_brown</item>
         <item name="android:textSize">24sp</item>
-
-
     </style>
 
+    <style name="ThemeTextInputLayout">
+        <item name="colorAccent">@color/cobalt_blue</item>
+    </style>
+
+    <style name="TextInputLayout">
+        <item name="android:theme">@style/ThemeTextInputLayout</item>
+        <item name="android:textColorHint">@color/silver_82</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
+    <style name="TextInputLayoutEditText">
+        <item name="android:textColor">@color/cobalt_blue</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:inputType">text</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:backgroundTint">@color/silver_82</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>

@@ -6,6 +6,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
+
+    androidExtensions {
+        experimental = true
+    }
+
     signingConfigs {
         config {
             keyAlias 'FinanceTracker'
@@ -60,7 +65,15 @@ android {
         implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
         implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
         implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+        implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
         implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+        // Moshi
+        implementation "com.squareup.moshi:moshi:$moshiVersion"
+        implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+
+        // Recycler View delegates
+        implementation "com.github.liverm0r:delegateadapters:v$delegateAdaptersVersion"
 
         testImplementation "junit:junit:$junit"
         androidTestImplementation "com.android.support.test:runner:$test_runner"
