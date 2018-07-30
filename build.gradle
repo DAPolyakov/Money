@@ -10,6 +10,7 @@ buildscript {
         daggerVersion = "2.16"
         delegateAdaptersVersion = "2.0"
         kotlinVersion = "1.2.51"
+        moshiVersion = "1.5.0"
         moxyVersion = "1.5.3"
         retrofitVersion = "2.3.0"
         rxAndroidVersion = "2.0.1"

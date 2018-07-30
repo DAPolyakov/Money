@@ -2,8 +2,7 @@ package yandexschool.dmpolyakov.money
 
 import yandexschool.dmpolyakov.money.OperationCategory.*
 
-const val BALANCE_IN_RUBBLES = 15000.0
-const val DOLLAR_TO_RUBBLE = 63.47
+var DOLLAR_TO_RUBBLE: Double = 63.47
 
 enum class Currency(val sign: String, val shortTitle: String) {
     Rubble("\u20BD", "RUB"),
