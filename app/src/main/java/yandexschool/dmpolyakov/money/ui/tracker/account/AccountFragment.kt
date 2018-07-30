@@ -10,10 +10,10 @@ import kotlinx.android.synthetic.main.fragment_account.*
 import yandexschool.dmpolyakov.money.R
 import yandexschool.dmpolyakov.money.models.Account
 import yandexschool.dmpolyakov.money.navigation.MainRouter
-import yandexschool.dmpolyakov.money.ui.about.AboutFragment
 import yandexschool.dmpolyakov.money.ui.base.ViewPagerAdapter
 import yandexschool.dmpolyakov.money.ui.base.mvp.BaseMvpFragment
 import yandexschool.dmpolyakov.money.ui.tracker.account.operations.OperationsFragment
+import yandexschool.dmpolyakov.money.ui.tracker.account.settings.AccountSettingsFragment
 import javax.inject.Inject
 
 
@@ -70,9 +70,12 @@ class AccountFragment() : BaseMvpFragment<AccountPresenter>(), AccountView {
         bundle.putParcelable("account", account)
         fragmentOperations.arguments = bundle
 
+        val accountSettingsFragment = AccountSettingsFragment()
+        accountSettingsFragment.arguments = bundle
+
         val adapter = ViewPagerAdapter(childFragmentManager)
         adapter.addFragment(fragmentOperations, "История операций")
-        adapter.addFragment(AboutFragment(), "Настройки")
+        adapter.addFragment(accountSettingsFragment, "Настройки")
         viewPager.adapter = adapter
     }
 

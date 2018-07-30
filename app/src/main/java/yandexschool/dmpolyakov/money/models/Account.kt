@@ -12,7 +12,7 @@ import java.text.DecimalFormat
 
 @Parcelize
 data class Account(
-        val title: String,
+        var title: String,
         var amount: BigDecimal,
         val currency: Currency,
         val operations: ArrayList<FinanceOperation> = ArrayList(),

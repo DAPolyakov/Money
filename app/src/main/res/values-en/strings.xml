@@ -29,4 +29,6 @@
     <string name="category_products">Products</string>
     <string name="category_health">Health</string>
     <string name="category_education">Education</string>
+    <string name="rename">Rename</string>
+    <string name="ok">Ok</string>
 </resources>
