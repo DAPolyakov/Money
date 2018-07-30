@@ -25,7 +25,7 @@ class TrackerPresenter @Inject constructor(private val router: MainRouter,
         bind(accountRep.addAccount(account).subscribe({
             updateAccounts()
         }, {
-            // TODO
+            viewState.showError(it)
         }))
     }
 
@@ -37,8 +37,8 @@ class TrackerPresenter @Inject constructor(private val router: MainRouter,
         bind(onUi(accountRep.getAccounts()).subscribe({
             viewState.showAccounts(it)
         }, {
-            // TODO
+            viewState.showError(it)
         }))
     }
-    
+
 }

@@ -76,7 +76,7 @@
         app:tabIndicatorHeight="3dp"
         app:tabPaddingTop="-1dp"
         app:tabSelectedTextColor="@color/white"
-        app:tabTextColor="@color/silver_82" />
+        app:tabTextColor="@color/smoky_white" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"

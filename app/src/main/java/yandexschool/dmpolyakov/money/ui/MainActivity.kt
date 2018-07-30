@@ -2,6 +2,7 @@ package yandexschool.dmpolyakov.money.ui
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -41,18 +42,14 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainView {
         if (savedInstanceState == null) {
             showInitialFragment()
         }
+    }
 
-//        NetworkModule.currencyService.getRatio("USD", "RUB").subscribe(
-//                {
-//                    val a = 2
-//                    val b = a + 11
-//                },
-//                {
-//                    val a = 2
-//                    val b = a + 11
-//                }
-//        )
+    fun showBottomNavigationMenu() {
+        bottomNavigation.visibility = View.VISIBLE
+    }
 
+    private fun hideBottomNavigationMenu() {
+        bottomNavigation.visibility = View.GONE
     }
 
     private fun showInitialFragment() {
@@ -64,7 +61,10 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainView {
             Screens.TRACKER -> TrackerFragment.instance
             Screens.SETTINGS -> SettingsFragment.instance
             Screens.ABOUT -> AboutFragment.instance
-            Screens.ACCOUNT -> AccountFragment.newInstance(data.toString())
+            Screens.ACCOUNT -> {
+                hideBottomNavigationMenu()
+                AccountFragment.newInstance(data.toString())
+            }
         }
     }
 

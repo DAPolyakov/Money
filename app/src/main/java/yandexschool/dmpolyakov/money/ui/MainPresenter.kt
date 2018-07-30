@@ -22,10 +22,11 @@ class MainPresenter @Inject constructor(var router: MainRouter,
         network.currencyService.getRatio("USD", "RUB").subscribe(
                 { DOLLAR_TO_RUBBLE = it },
                 {
-                    // TODO
+                    viewState.showError(it)
                 }
         )
     }
+
 
     fun onItem(itemId: Int) {
         when (itemId) {

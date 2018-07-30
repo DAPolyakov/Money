@@ -30,4 +30,8 @@ abstract class BaseMvpFragment<Presenter : BaseMvpPresenter<*>>
     override fun showToast(string: String) {
         Toast.makeText(activity, string, Toast.LENGTH_SHORT).show()
     }
+
+    override fun showError(throwable: Throwable) {
+        Toast.makeText(context, throwable.message, Toast.LENGTH_SHORT).show()
+    }
 }
