@@ -30,5 +30,7 @@
     <string name="category_products">Продукты</string>
     <string name="category_health">Здоровье</string>
     <string name="category_education">Образование</string>
+    <string name="rename">Переименовать</string>
+    <string name="ok">Ок</string>
 
 </resources>

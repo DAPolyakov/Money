@@ -44,6 +44,15 @@ class AccountRepository() {
         return Completable.complete()
     }
 
+    fun rename(accountId: String, title: String): Completable {
+        val account = fakeAccounts.find { it.id == accountId }
+                ?: throw Exception("Account not found")
+
+        account.title = title
+        subjectFakeAccounts.onNext(fakeAccounts)
+        return Completable.complete()
+    }
+
     private fun createFakeAccounts() {
 
         val operations = ArrayList<FinanceOperation>()
