@@ -6,12 +6,14 @@ import yandexschool.dmpolyakov.money.models.FinanceOperation
 import yandexschool.dmpolyakov.money.utils.sumFinanceOperations
 import yandexschool.dmpolyakov.money.utils.toDollars
 import yandexschool.dmpolyakov.money.utils.toRubbles
+import java.math.BigDecimal
 
 class FinanceUnitTest {
 
     @Test
     fun int_rubbles_to_dollars() {
-        Assert.assertEquals(10.toBigDecimal() / DOLLAR_TO_RUBBLE, 10.toDollars(Currency.Rubble))
+        Assert.assertEquals(10.toBigDecimal().divide(DOLLAR_TO_RUBBLE.toBigDecimal(), 2, BigDecimal.ROUND_HALF_UP),
+                10.toDollars(Currency.Rubble))
     }
 
     @Test
@@ -21,7 +23,7 @@ class FinanceUnitTest {
 
     @Test
     fun int_dollars_to_rubbles() {
-        Assert.assertEquals(10.toBigDecimal() * DOLLAR_TO_RUBBLE, 10.toRubbles(Currency.Dollar))
+        Assert.assertEquals(10.toBigDecimal() * DOLLAR_TO_RUBBLE.toBigDecimal(), 10.toRubbles(Currency.Dollar))
     }
 
     @Test
@@ -32,9 +34,9 @@ class FinanceUnitTest {
     @Test
     fun sum_operations_only_income() {
         val op = listOf(
-                FinanceOperation(OperationType.Income, 150.toBigDecimal(), Currency.Rubble),
-                FinanceOperation(OperationType.Income, 2.toBigDecimal(), Currency.Dollar),
-                FinanceOperation(OperationType.Income, 100.toBigDecimal(), Currency.Rubble)
+                FinanceOperation("", 150.toBigDecimal(), OperationType.Income, OperationCategory.Salary, Currency.Rubble, ""),
+                FinanceOperation("", 2.toBigDecimal(), OperationType.Income, OperationCategory.Salary, Currency.Dollar, ""),
+                FinanceOperation("", 100.toBigDecimal(), OperationType.Income, OperationCategory.Salary, Currency.Rubble, "")
         )
 
         val res = 150.toRubbles(Currency.Rubble) + 2.toRubbles(Currency.Dollar) + 100.toRubbles(Currency.Rubble)
@@ -46,8 +48,8 @@ class FinanceUnitTest {
     @Test
     fun sum_operations_only_paid() {
         val op = listOf(
-                FinanceOperation(OperationType.Expense, 100.toBigDecimal(), Currency.Rubble),
-                FinanceOperation(OperationType.Expense, 3.toBigDecimal(), Currency.Dollar)
+                FinanceOperation("", 100.toBigDecimal(), OperationType.Expense, OperationCategory.Salary, Currency.Rubble, ""),
+                FinanceOperation("", 3.toBigDecimal(), OperationType.Expense, OperationCategory.Salary, Currency.Dollar, "")
         )
 
         val res = (-100).toRubbles(Currency.Rubble) - 3.toRubbles(Currency.Dollar)

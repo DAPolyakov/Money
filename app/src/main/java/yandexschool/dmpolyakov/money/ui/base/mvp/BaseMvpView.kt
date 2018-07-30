@@ -10,4 +10,5 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 interface BaseMvpView : MvpView {
     fun showToast(@StringRes stringId: Int)
     fun showToast(string: String)
+    fun showError(throwable: Throwable)
 }

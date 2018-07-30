@@ -19,6 +19,7 @@ import yandexschool.dmpolyakov.money.Currency
 import yandexschool.dmpolyakov.money.R
 import yandexschool.dmpolyakov.money.models.Account
 import yandexschool.dmpolyakov.money.navigation.MainRouter
+import yandexschool.dmpolyakov.money.ui.MainActivity
 import yandexschool.dmpolyakov.money.ui.base.mvp.BaseMvpFragment
 import yandexschool.dmpolyakov.money.ui.base.rv_delegates.AccountDelegateAdapter
 import yandexschool.dmpolyakov.money.ui.base.rv_delegates.EmptyStateDelegateAdapter
@@ -56,6 +57,11 @@ class TrackerFragment : BaseMvpFragment<TrackerPresenter>(), TrackerView {
             .add(EmptyStateDelegateAdapter())
             .add(SubtitleDelegateAdapter())
             .build()
+
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).showBottomNavigationMenu()
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
             : View? = inflater.inflate(R.layout.fragment_tracker, container, false)

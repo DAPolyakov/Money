@@ -27,7 +27,7 @@ class AccountPresenter @Inject constructor(
         bind(onUi(accountRep.getAccount(id)).subscribe(
                 { updateAccount(it) },
                 {
-                    // TODO
+                    viewState.showError(it)
                 })
         )
     }

@@ -22,7 +22,7 @@ class OperationsPresenter @Inject constructor(router: MainRouter, val accountRep
                 .subscribe({
                     updateAccount()
                 }, {
-                    // TODO
+                    viewState.showError(it)
                 }))
         )
     }
@@ -33,7 +33,7 @@ class OperationsPresenter @Inject constructor(router: MainRouter, val accountRep
                     viewState.showOperations(it.operations)
                 },
                 {
-                    // TODO
+                    viewState.showError(it)
                 }
         ))
     }
