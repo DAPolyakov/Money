@@ -74,8 +74,8 @@ class AccountFragment() : BaseMvpFragment<AccountPresenter>(), AccountView {
         accountSettingsFragment.arguments = bundle
 
         val adapter = ViewPagerAdapter(childFragmentManager)
-        adapter.addFragment(fragmentOperations, "История операций")
-        adapter.addFragment(accountSettingsFragment, "Настройки")
+        adapter.addFragment(fragmentOperations, getString(R.string.finance_history))
+        adapter.addFragment(accountSettingsFragment, getString(R.string.settings))
         viewPager.adapter = adapter
     }
 

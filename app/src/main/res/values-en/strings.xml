@@ -30,5 +30,6 @@
     <string name="category_health">Health</string>
     <string name="category_education">Education</string>
     <string name="rename">Rename</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
+    <string name="finance_history">Operations history</string>
 </resources>

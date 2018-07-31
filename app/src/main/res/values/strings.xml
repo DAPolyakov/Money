@@ -32,5 +32,6 @@
     <string name="category_education">Образование</string>
     <string name="rename">Переименовать</string>
     <string name="ok">Ок</string>
+    <string name="finance_history">История операций</string>
 
 </resources>
