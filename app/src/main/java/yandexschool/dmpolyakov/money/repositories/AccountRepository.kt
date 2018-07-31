@@ -27,6 +27,8 @@ class AccountRepository() {
     fun addAccount(account: Account): Completable {
         fakeAccounts.add(account.copy(id = (fakeAccounts.size + 1).toString()))
         subjectFakeAccounts.onNext(fakeAccounts)
+
+        fakeAccounts.sortWith(Comparator { a, b -> if (a.balance > b.balance) 0 else 1 })
         return Completable.complete()
     }
 
