@@ -7,13 +7,10 @@ import yandexschool.dmpolyakov.money.ui.about.AboutPresenter
 
 
 @Module
-abstract class AboutModule {
+object AboutModule {
 
-    @Module
-    companion object {
-
-        @Provides
-        fun provideAboutPresenter(router: MainRouter): AboutPresenter = AboutPresenter(router)
-    }
+    @JvmStatic
+    @Provides
+    fun provideAboutPresenter(router: MainRouter): AboutPresenter = AboutPresenter(router)
 
 }

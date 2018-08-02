@@ -7,13 +7,10 @@ import yandexschool.dmpolyakov.money.ui.settings.SettingsPresenter
 
 
 @Module
-abstract class SettingsModule {
+object SettingsModule {
 
-    @Module
-    companion object {
-
-        @Provides
-        fun provideSettingsPresenter(router: MainRouter) = SettingsPresenter(router)
-    }
+    @JvmStatic
+    @Provides
+    fun provideSettingsPresenter(router: MainRouter) = SettingsPresenter(router)
 
 }

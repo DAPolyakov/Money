@@ -8,18 +8,18 @@ import dagger.android.support.AndroidSupportInjectionModule
 import yandexschool.dmpolyakov.money.App
 import yandexschool.dmpolyakov.money.di.features.AppModule
 import yandexschool.dmpolyakov.money.di.features.NavigationModule
-import yandexschool.dmpolyakov.money.di.features.RepositoriesModule
+import yandexschool.dmpolyakov.money.di.features.NetworkModule
 import yandexschool.dmpolyakov.money.ui.base.mvp.BaseMvpActivity
 import javax.inject.Singleton
 
 
 @Singleton
 @Component(modules = [
+    AppModule::class,
     AndroidSupportInjectionModule::class,
     AndroidInjectionModule::class,
-    AppModule::class,
     NavigationModule::class,
-    RepositoriesModule::class]
+    NetworkModule::class]
 )
 interface AppComponent {
     fun inject(navigateInjector: BaseMvpActivity.Companion.NavigateInjector)

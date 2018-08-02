@@ -6,7 +6,8 @@ import android.content.res.Resources
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
-import yandexschool.dmpolyakov.money.network.NetworkModule
+import yandexschool.dmpolyakov.money.repository.AccountRepository
+import yandexschool.dmpolyakov.money.repository.AccountRepositoryImpl
 import yandexschool.dmpolyakov.money.ui.MainActivity
 import javax.inject.Singleton
 
@@ -19,17 +20,20 @@ abstract class AppModule {
 
     @Module
     companion object {
+        @JvmStatic
         @Singleton
         @Provides
         fun provideContext(app: Application): Context = app
 
+        @JvmStatic
         @Singleton
         @Provides
         fun provideResources(context: Context): Resources = context.resources
 
+        @JvmStatic
         @Singleton
         @Provides
-        fun provideNetworkModule(): NetworkModule = NetworkModule()
+        fun provideAccountRepository(): AccountRepository = AccountRepositoryImpl()
     }
 
 }

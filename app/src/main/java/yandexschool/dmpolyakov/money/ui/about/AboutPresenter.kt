@@ -19,4 +19,6 @@ class AboutPresenter @Inject constructor(var router: MainRouter) : BaseMvpPresen
         viewState?.showVersion(BuildConfig.VERSION_NAME)
     }
 
+    
+
 }

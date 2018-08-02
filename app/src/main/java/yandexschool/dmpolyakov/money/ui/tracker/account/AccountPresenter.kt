@@ -3,7 +3,7 @@ package yandexschool.dmpolyakov.money.ui.tracker.account
 import com.arellomobile.mvp.InjectViewState
 import yandexschool.dmpolyakov.money.models.Account
 import yandexschool.dmpolyakov.money.navigation.MainRouter
-import yandexschool.dmpolyakov.money.repositories.AccountRepository
+import yandexschool.dmpolyakov.money.repository.AccountRepository
 import yandexschool.dmpolyakov.money.ui.base.mvp.BaseMvpPresenter
 import javax.inject.Inject
 
@@ -16,7 +16,6 @@ class AccountPresenter @Inject constructor(
     private var accountId = ""
 
     override fun onFirstViewAttach() {
-        super.onFirstViewAttach()
         bind(onUi(accountRep.subjectFakeAccounts).subscribe {
             updateAccount(it.find { it.id == accountId }!!)
         })
