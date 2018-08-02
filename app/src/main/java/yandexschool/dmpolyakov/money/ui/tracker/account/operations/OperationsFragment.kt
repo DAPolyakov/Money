@@ -69,6 +69,9 @@ class OperationsFragment : BaseMvpFragment<OperationsPresenter>(), OperationsVie
                 .setCancelable(false)
                 .create()
 
+    }
+
+    override fun loadAccount() {
         val account: Account = arguments?.getParcelable("account")!!
         presenter.loadAccount(account)
     }

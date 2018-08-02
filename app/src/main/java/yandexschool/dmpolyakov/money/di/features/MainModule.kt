@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
 import yandexschool.dmpolyakov.money.navigation.MainRouter
-import yandexschool.dmpolyakov.money.network.NetworkModule
+import yandexschool.dmpolyakov.money.repository.CurrencyRepositoryImpl
 import yandexschool.dmpolyakov.money.ui.MainPresenter
 import yandexschool.dmpolyakov.money.ui.about.AboutFragment
 import yandexschool.dmpolyakov.money.ui.settings.SettingsFragment
@@ -39,8 +39,8 @@ abstract class MainModule {
     companion object {
 
         @Provides
-        fun provideMainPresenter(router: MainRouter, network: NetworkModule) =
-                MainPresenter(router, network)
+        fun provideMainPresenter(router: MainRouter, currencyRepository: CurrencyRepositoryImpl) =
+                MainPresenter(router, currencyRepository)
 
     }
 }

@@ -1,4 +1,4 @@
-package yandexschool.dmpolyakov.money.repositories
+package yandexschool.dmpolyakov.money.repository
 
 import io.reactivex.Completable
 import io.reactivex.Observable
@@ -12,19 +12,19 @@ import yandexschool.dmpolyakov.money.models.Account
 import yandexschool.dmpolyakov.money.models.FinanceOperation
 
 
-class AccountRepository() {
+class AccountRepositoryImpl : AccountRepository {
 
     private val fakeAccounts = ArrayList<Account>()
-    val subjectFakeAccounts: Subject<List<Account>> = BehaviorSubject.create<List<Account>>()
+    override val subjectFakeAccounts: Subject<List<Account>> = BehaviorSubject.create<List<Account>>()
 
     init {
         createFakeAccounts()
     }
 
-    fun getAccounts(): Single<ArrayList<Account>> =
+    override fun getAccounts(): Single<ArrayList<Account>> =
             Single.fromObservable(Observable.fromArray(fakeAccounts))
 
-    fun addAccount(account: Account): Completable {
+    override fun addAccount(account: Account): Completable {
         fakeAccounts.add(account.copy(id = (fakeAccounts.size + 1).toString()))
         subjectFakeAccounts.onNext(fakeAccounts)
 
@@ -32,12 +32,12 @@ class AccountRepository() {
         return Completable.complete()
     }
 
-    fun getAccount(id: String): Single<Account> {
+    override fun getAccount(id: String): Single<Account> {
         return Single.just(fakeAccounts.find { it.id == id }
                 ?: throw Exception("Account not found"))
     }
 
-    fun addFinanceOperation(accountId: String, operation: FinanceOperation): Completable {
+    override fun addFinanceOperation(accountId: String, operation: FinanceOperation): Completable {
         val account = fakeAccounts.find { it.id == accountId }
                 ?: throw Exception("Account not found")
 
@@ -46,7 +46,7 @@ class AccountRepository() {
         return Completable.complete()
     }
 
-    fun rename(accountId: String, title: String): Completable {
+    override fun renameAccount(accountId: String, title: String): Completable {
         val account = fakeAccounts.find { it.id == accountId }
                 ?: throw Exception("Account not found")
 

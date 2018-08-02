@@ -8,4 +8,5 @@ interface OperationsView : BaseMvpView {
 
 
     fun showOperations(operations: List<FinanceOperation>)
+    fun loadAccount()
 }
